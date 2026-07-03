@@ -7,7 +7,7 @@ public class Ticket {
     public Ticket() {
         this.movieTitle = "";
         this.customerName = "";
-        this.showtime = :;
+        this.showtime = "";
         this.basePrice = 15.00; 
     }
     public Ticket(String movieTitle, String customerName, String showtime) {
