@@ -1,33 +1,20 @@
+public class VIPTicket extends Ticket {
+    private final double VIP_SURCHARGE = 15.00; // Premium seating fee
+    private boolean wantsSnackCombo;
+    private final double DISCOUNTED_SNACK_PRICE = 8.00; // VIPs get cheaper snacks!
 
-/**
- * Write a description of class VipTicket here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
-public class VipTicket
-{
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class VipTicket
-     */
-    public VipTicket()
-    {
-        // initialise instance variables
-        x = 0;
+    public VIPTicket(String movieTitle, String customerName, String showtime, boolean wantsSnackCombo) {
+        super(movieTitle, customerName, showtime);
+        this.wantsSnackCombo = wantsSnackCombo;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    // Overriding calculateTotal differently (Polymorphism)
+    @Override
+    public double calculateTotal() {
+        double total = super.calculateTotal() + VIP_SURCHARGE;
+        if (wantsSnackCombo) {
+            total += DISCOUNTED_SNACK_PRICE;
+        }
+        return total;
     }
 }
